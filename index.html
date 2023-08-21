@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Creative Menu</title>
+</head>
+<body>
+    <nav class="menu">
+        <ul class="items">
+            <li class="item"> <a href="#" class="link"> Home </a> </li>
+            <li class="item"> <a href="#" class="link"> About </a> </li>
+            <li class="item"> <a href="#" class="link"> Nice hover effect </a> </li>
+            <li class="item"> <a href="#" class="link"> Services </a> </li>
+            <li class="item"> <a href="#" class="link"> Contact </a> </li>
+            <div id="cursor"></div>
+        </ul>
+    </nav>
+
+    <script>
+        let text = document.querySelectorAll('.link')
+        .forEach(text=>{
+            text.innerHTML = text.innerHTML.split('').map(
+                (letters, i) => `<span style="transition-delay: ${i*40}ms"> ${letters} </span>`
+            ).join('')
+        })
+
+        const cursor = document.getElementById("cursor");
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.top = e.pageY + 'px';
+            cursor.style.left = e.pageX + 'px';
+        })
+    </script>
+</body>
+</html>
